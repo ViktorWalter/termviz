@@ -378,12 +378,12 @@ fn parse_sphere_msg(
 
     let scale = &Point3::new(msg.scale.x,msg.scale.y,msg.scale.z);
 
-    let p1 = iso.transform_point(&Point3::new(-scale.x,0.0,0.0));
-    let p2 = iso.transform_point(&Point3::new(scale.x,0.0,0.0));
-    let p3 = iso.transform_point(&Point3::new(0.0,-scale.y,0.0));
-    let p4 = iso.transform_point(&Point3::new(0.0,scale.y,0.0));
-    let p5 = iso.transform_point(&Point3::new(0.0,0.0,-scale.z));
-    let p6 = iso.transform_point(&Point3::new(0.0,0.0,scale.z));
+    let p1 = iso.transform_point(&Point3::new(-scale.x*0.5,0.0,0.0));
+    let p2 = iso.transform_point(&Point3::new(scale.x*0.5,0.0,0.0));
+    let p3 = iso.transform_point(&Point3::new(0.0,-scale.y*0.5,0.0));
+    let p4 = iso.transform_point(&Point3::new(0.0,scale.y*0.5,0.0));
+    let p5 = iso.transform_point(&Point3::new(0.0,0.0,-scale.z*0.5));
+    let p6 = iso.transform_point(&Point3::new(0.0,0.0,scale.z*0.5));
 
 
     lines.push(Line {
