@@ -412,8 +412,8 @@ fn parse_sphere_msg(
     let step = (2.0*PI)/(n as f64);
     for i  in 0..n {
         let ifl = i as f64;
-        let pa = iso.transform_point(&Point3::new(scale.x*((ifl*(step)).sin()),scale.y*((ifl*(step)).cos()),0.0));
-        let pb = iso.transform_point(&Point3::new(scale.x*(((ifl+1.0)*(step)).sin()),scale.y*(((ifl+1.0)*(step)).cos()),0.0));
+        let pa = iso.transform_point(&Point3::new(0.5*scale.x*((ifl*(step)).sin()),0.5*scale.y*((ifl*(step)).cos()),0.0));
+        let pb = iso.transform_point(&Point3::new(0.5*scale.x*(((ifl+1.0)*(step)).sin()),0.5*scale.y*(((ifl+1.0)*(step)).cos()),0.0));
         lines.push(Line {
         x1: pa.x,
         y1: pa.y,
@@ -424,8 +424,8 @@ fn parse_sphere_msg(
     }
     for i  in 0..n {
         let ifl = i as f64;
-        let pa = iso.transform_point(&Point3::new(scale.x*((ifl*(step)).sin()),0.0,scale.z*((ifl*(step)).cos())));
-        let pb = iso.transform_point(&Point3::new(scale.x*(((ifl+1.0)*(step)).sin()),0.0,scale.z*(((ifl+1.0)*(step)).cos())));
+        let pa = iso.transform_point(&Point3::new(0.5*scale.x*((ifl*(step)).sin()),0.0,0.5*scale.z*((ifl*(step)).cos())));
+        let pb = iso.transform_point(&Point3::new(0.5*scale.x*(((ifl+1.0)*(step)).sin()),0.0,0.5*scale.z*(((ifl+1.0)*(step)).cos())));
         lines.push(Line {
         x1: pa.x,
         y1: pa.y,
@@ -436,8 +436,8 @@ fn parse_sphere_msg(
     }
     for i  in 0..n {
         let ifl = i as f64;
-        let pa = iso.transform_point(&Point3::new(0.0,scale.y*((ifl*(step)).cos()),scale.z*((ifl*(step)).sin())));
-        let pb = iso.transform_point(&Point3::new(0.0,scale.y*(((ifl+1.0)*(step)).cos()),scale.z*(((ifl+1.0)*(step)).sin())));
+        let pa = iso.transform_point(&Point3::new(0.0,0.5*scale.y*((ifl*(step)).cos()),0.5*scale.z*((ifl*(step)).sin())));
+        let pb = iso.transform_point(&Point3::new(0.0,0.5*scale.y*(((ifl+1.0)*(step)).cos()),0.5*scale.z*(((ifl+1.0)*(step)).sin())));
         lines.push(Line {
         x1: pa.x,
         y1: pa.y,
